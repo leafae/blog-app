@@ -1,0 +1,43 @@
+.nav-bar {
+  max-width: 90vw;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  align-items: center;
+  display: flex;
+  padding: 10px 0;
+}
+
+.nav-logo {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-left: 50px;
+  padding: 0 1rem;
+  background-color: #0f172a;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+}
+
+.nav-links {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.nav-links a {
+  color: #1f2937; /* dark gray */
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #e5e7eb; /* light gray on hover */
+  color: #2563eb; /* blue text on hover */
+}
