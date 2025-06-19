@@ -3,7 +3,7 @@ import BlogItem from "./BlogItem";
 
 export default function BlogList({ blogs }) {
   return (
-    <div>
+    <div className="blog-container">
       {blogs.length === 0 ? (
         <p>No blogs found</p>
       ) : (
