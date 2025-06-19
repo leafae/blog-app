@@ -41,7 +41,7 @@ export default function BlogForm() {
       const data = await createBlog(formData);
       console.log("New blog created: ", data);
       handleReset();
-      alert("New blog addded");
+      alert("New blog added");
     } catch (err) {
       console.log(err);
       setError("⚠︎ Failed to create blog. Please try again.");
