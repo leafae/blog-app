@@ -72,10 +72,12 @@ export default function BlogForm() {
           />
         </div>
         <div className="blog-form-btn-row">
-          <button type="button" onClick={handleReset}>
+          <button type="button" onClick={handleReset} disabled={isSubmitting}>
             Reset
           </button>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
         </div>
         {error && <div className="blog-form-error">{error}</div>}
         {isSubmitting && <p>Creating new blog...</p>}

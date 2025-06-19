@@ -87,6 +87,12 @@
 .blog-form-btn-row button {
   width: 100px;
 }
+.blog-form-btn-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #666;
+}
 
 .blog-form-error {
   background-color: #ffe6e6;
