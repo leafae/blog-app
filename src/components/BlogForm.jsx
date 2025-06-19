@@ -22,7 +22,6 @@ export default function BlogForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
     const titleBlank = !formData.title.trim();
     const contentBlank = !formData.content.trim();
@@ -36,7 +35,8 @@ export default function BlogForm() {
       setError("⚠︎ Content cannot be blanked");
       return;
     }
-
+    setIsSubmitting(true);
+    setError("");
     try {
       const data = await createBlog(formData);
       console.log("New blog created: ", data);
@@ -44,6 +44,7 @@ export default function BlogForm() {
       alert("New blog addded");
     } catch (err) {
       console.log(err);
+      setError("⚠︎ Failed to create blog. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
