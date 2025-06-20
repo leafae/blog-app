@@ -26,13 +26,13 @@ export default function BlogForm() {
     const titleBlank = !formData.title.trim();
     const contentBlank = !formData.content.trim();
     if (titleBlank && contentBlank) {
-      setError("⚠︎ Title and Content cannot be blanked");
+      setError("⚠︎ Title and Content cannot be blank");
       return;
     } else if (titleBlank) {
-      setError("⚠︎ Title cannot be blanked");
+      setError("⚠︎ Title cannot be blank");
       return;
     } else if (contentBlank) {
-      setError("⚠︎ Content cannot be blanked");
+      setError("⚠︎ Content cannot be blank");
       return;
     }
     setIsSubmitting(true);
