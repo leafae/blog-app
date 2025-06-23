@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { createBlog } from "../utils/api";
 
-export default function BlogForm() {
-  const [formData, setFormData] = useState({ title: "", content: "" });
+export default function BlogForm({
+  initialData = { title: "", content: "" },
+  onSubmit,
+  formTitle,
+}) {
+  const [formData, setFormData] = useState(initialData);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -38,13 +41,13 @@ export default function BlogForm() {
     setIsSubmitting(true);
     setError("");
     try {
-      const data = await createBlog(formData);
+      const data = await onSubmit(formData);
       console.log("New blog created: ", data);
       handleReset();
-      alert("New blog added");
+      alert("Blog submitted");
     } catch (err) {
       console.log(err);
-      setError("⚠︎ Failed to create blog. Please try again.");
+      setError("⚠︎ Failed to submit blog. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -53,7 +56,7 @@ export default function BlogForm() {
   return (
     <>
       <form className="blog-form" onSubmit={handleSubmit}>
-        <h1 className="blog-form-title">Add a new Blog!</h1>
+        <h1 className="blog-form-title">{formTitle}</h1>
         <div className="blog-form-row">
           <label>Title: </label>
           <input
