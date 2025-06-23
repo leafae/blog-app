@@ -115,6 +115,28 @@
   max-width: 300px;
 }
 
+.blog-detail-btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 15px;
+}
+.blog-detail-btns button {
+  font-size: 1.2rem;
+}
+.blog-detail-edit {
+  background-color: #ffa53d;
+}
+.blog-detail-edit:hover {
+  background-color: #ff8c1a;
+}
+.blog-detail-delete {
+  background-color: #f03c3c;
+}
+.blog-detail-delete:hover {
+  background-color: #d62f2f;
+}
+
 @media (max-width: 900px) {
   .blog-card-link {
     width: 45%;

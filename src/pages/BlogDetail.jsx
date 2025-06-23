@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBlog } from "../utils/api";
 import BlogItem from "../components/BlogItem";
+import { RiEditBoxLine, RiDeleteBin5Line } from "react-icons/ri";
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -31,7 +32,17 @@ export default function BlogDetail() {
       ) : !blog ? (
         <h2>Blog not found</h2>
       ) : (
-        <BlogItem blog={blog} />
+        <>
+          <BlogItem blog={blog} />
+          <div className="blog-detail-btns">
+            <button className="blog-detail-edit">
+              <RiEditBoxLine />
+            </button>
+            <button className="blog-detail-delete">
+              <RiDeleteBin5Line />
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
