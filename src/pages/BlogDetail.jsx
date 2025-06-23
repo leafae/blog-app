@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getBlog } from "../utils/api";
+import { useNavigate, useParams } from "react-router-dom";
+import { deleteBlog, getBlog } from "../utils/api";
 import BlogItem from "../components/BlogItem";
 import { RiEditBoxLine, RiDeleteBin5Line } from "react-icons/ri";
 
@@ -8,6 +8,7 @@ export default function BlogDetail() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,20 @@ export default function BlogDetail() {
     fetchData();
   }, [id]);
 
+  const handleDelete = async () => {
+    const deleteConfirm = window.confirm("Delete this blog?");
+    if (!deleteConfirm) return;
+
+    try {
+      const data = await deleteBlog(id);
+      window.alert("Blog deleted!");
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      window.alert("Failed to delete blog.");
+    }
+  };
+
   return (
     <div>
       <h1>Blog Detail</h1>
@@ -38,7 +53,7 @@ export default function BlogDetail() {
             <button className="blog-detail-edit">
               <RiEditBoxLine />
             </button>
-            <button className="blog-detail-delete">
+            <button className="blog-detail-delete" onClick={handleDelete}>
               <RiDeleteBin5Line />
             </button>
           </div>
