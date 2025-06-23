@@ -25,6 +25,10 @@ export default function BlogDetail() {
     fetchData();
   }, [id]);
 
+  const handleEdit = () => {
+    navigate(`/blogs/edit/${id}`);
+  };
+
   const handleDelete = async () => {
     const deleteConfirm = window.confirm("Delete this blog?");
     if (!deleteConfirm) return;
@@ -50,7 +54,7 @@ export default function BlogDetail() {
         <>
           <BlogItem blog={blog} />
           <div className="blog-detail-btns">
-            <button className="blog-detail-edit">
+            <button className="blog-detail-edit" onClick={handleEdit}>
               <RiEditBoxLine />
             </button>
             <button className="blog-detail-delete" onClick={handleDelete}>

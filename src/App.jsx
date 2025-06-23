@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import AddBlog from "./pages/AddBlog";
 import BlogDetail from "./pages/BlogDetail";
+import EditBlog from "./pages/EditBlog";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/add" element={<AddBlog />} />
+          <Route path="/blogs/edit/:id" element={<EditBlog />} />
         </Routes>
       </BrowserRouter>
     </div>
