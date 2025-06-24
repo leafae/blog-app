@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogForm({
   initialData = { title: "", content: "" },
@@ -8,6 +9,7 @@ export default function BlogForm({
   const [formData, setFormData] = useState(initialData);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((currData) => {
@@ -43,8 +45,8 @@ export default function BlogForm({
     try {
       const data = await onSubmit(formData);
       console.log("New blog created: ", data);
-      handleReset();
       alert("Blog submitted");
+      navigate(`/blogs/${data.id}`);
     } catch (err) {
       console.log(err);
       setError("⚠︎ Failed to submit blog. Please try again.");
