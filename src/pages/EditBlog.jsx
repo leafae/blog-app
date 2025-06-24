@@ -12,7 +12,10 @@ export default function EditBlog() {
 
   return (
     <div>
-      <BlogForm formTitle={"Editing blog..."} onSubmit={handleUpdate} />
+      <BlogForm
+        formTitle={`Editing Blog - ID: ${id}`}
+        onSubmit={handleUpdate}
+      />
     </div>
   );
 }

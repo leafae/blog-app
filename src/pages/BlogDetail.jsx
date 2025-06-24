@@ -45,7 +45,7 @@ export default function BlogDetail() {
 
   return (
     <div>
-      <h1>Blog Detail</h1>
+      <h1>Blog Detail - ID: {id}</h1>
       {isLoading ? (
         <h2>Loading blogs...</h2>
       ) : !blog ? (
