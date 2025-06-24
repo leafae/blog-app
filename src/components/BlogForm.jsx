@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function BlogForm({
   initialData = { title: "", content: "" },
   onSubmit,
   formTitle,
+  isEditMode = false,
 }) {
   const [formData, setFormData] = useState(initialData);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isEditMode) {
+      setFormData(initialData);
+    }
+  }, [initialData]);
 
   const handleChange = (e) => {
     setFormData((currData) => {
