@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.toggle-sort-btn {
+  cursor: pointer;
+}
+
 .blog-card-link {
   text-decoration: none;
   display: block;
