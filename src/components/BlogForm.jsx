@@ -83,7 +83,7 @@ export default function BlogForm({
           </button>
         </div>
         {error && <div className="blog-form-error">{error}</div>}
-        {isSubmitting && <p>Creating new blog...</p>}
+        {isSubmitting && <p>Submitting blog...</p>}
       </form>
     </>
   );
