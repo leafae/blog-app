@@ -5,11 +5,13 @@ import {
   HiOutlineSortAscending,
   HiOutlineSortDescending,
 } from "react-icons/hi";
+import SearchBar from "../components/SearchBar";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDescendingOrder, setIsDescendingOrder] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,10 +36,14 @@ export default function Home() {
     return isDescendingOrder ? b.id - a.id : a.id - b.id;
   });
 
+  const filteredBlogs = sortedBlogs.filter((blog) =>
+    blog.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <h1>
-        Blogs List{" "}
+        Blogs List
         <span onClick={toggleSortOrder} className="toggle-sort-btn">
           {isDescendingOrder ? (
             <HiOutlineSortDescending />
@@ -46,8 +52,13 @@ export default function Home() {
           )}
         </span>
       </h1>
+      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
 
-      {isLoading ? <h2>Loading blogs...</h2> : <BlogList blogs={sortedBlogs} />}
+      {isLoading ? (
+        <h2>Loading blogs...</h2>
+      ) : (
+        <BlogList blogs={filteredBlogs} />
+      )}
     </div>
   );
 }
