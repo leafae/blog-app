@@ -36,6 +36,18 @@ app.post("/api/blogs", async (req, res) => {
   }
 });
 
+app.put("/api/blogs/:id", async (req, res) => {
+  try {
+    const updated = await Blog.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json(updated);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 mongoose
   .connect(
     "mongodb+srv://leafie:ihroiaIAzulPIbvR@mern.ogliakt.mongodb.net/?retryWrites=true&w=majority&appName=MERN"
