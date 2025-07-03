@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   const sortedBlogs = [...blogs].sort((a, b) => {
-    return isDescendingOrder ? b.id - a.id : a.id - b.id;
+    return isDescendingOrder ? b._id - a._id : a._id - b._id;
   });
 
   const filteredBlogs = sortedBlogs.filter((blog) =>

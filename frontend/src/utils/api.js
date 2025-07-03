@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const URL = "https://685266170594059b23cd5669.mockapi.io/api/blog";
+// const URL = "https://685266170594059b23cd5669.mockapi.io/api/blog";
+
+const URL = "http://localhost:3000/api/blogs";
 
 export const getBlogs = async () => {
   const res = await axios.get(URL);

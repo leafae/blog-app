@@ -10,9 +10,9 @@ export default function BlogList({ blogs }) {
       ) : (
         blogs.map((blog) => (
           <Link
-            key={blog.id}
+            key={blog._id}
             className="blog-card-link"
-            to={`/blogs/${blog.id}`}
+            to={`/blogs/${blog._id}`}
           >
             <BlogItem blog={blog} />
           </Link>

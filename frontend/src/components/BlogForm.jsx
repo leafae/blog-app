@@ -53,7 +53,7 @@ export default function BlogForm({
       const data = await onSubmit(formData);
       console.log("New blog created: ", data);
       alert("Blog submitted");
-      navigate(`/blogs/${data.id}`);
+      navigate(`/blogs/${data._id}`);
     } catch (err) {
       console.log(err);
       setError("⚠︎ Failed to submit blog. Please try again.");
