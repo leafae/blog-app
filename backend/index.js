@@ -48,6 +48,15 @@ app.put("/api/blogs/:id", async (req, res) => {
   }
 });
 
+app.delete("/api/blogs/:id", async (req, res) => {
+  try {
+    const deleted = await Blog.findByIdAndDelete(req.params.id);
+    res.status(200).json(deleted);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 mongoose
   .connect(
     "mongodb+srv://leafie:ihroiaIAzulPIbvR@mern.ogliakt.mongodb.net/?retryWrites=true&w=majority&appName=MERN"
