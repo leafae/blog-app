@@ -18,6 +18,15 @@ app.get("/api/blogs", async (req, res) => {
   }
 });
 
+app.get("/api/blogs/:id", async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    res.status(200).json(blog);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.post("/api/blogs", async (req, res) => {
   try {
     const blog = await Blog.create(req.body);
