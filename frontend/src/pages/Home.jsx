@@ -33,7 +33,9 @@ export default function Home() {
   };
 
   const sortedBlogs = [...blogs].sort((a, b) => {
-    return isDescendingOrder ? b._id - a._id : a._id - b._id;
+    return isDescendingOrder
+      ? new Date(b.createdAt) - new Date(a.createdAt)
+      : new Date(a.createdAt) - new Date(b.createdAt);
   });
 
   const filteredBlogs = sortedBlogs.filter((blog) =>
